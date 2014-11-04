@@ -4,6 +4,9 @@ vcf_loader
 Prototype for loading VCF Datasets into scidb. Currently built around the 1000 Genomes dataset.
 Very very early, unstable.
 
+Part of the original prototype was adapted from scidb-genotypes by Douglas Slotta (NCBI)
+See: https://github.com/slottad/scidb-genotypes
+
 ## Pre-reqs
 0. Assumes running SciDB, Python, CPP compiler. To load many files, turn up the thread settings, i.e.:
   1. execution-threads=68
