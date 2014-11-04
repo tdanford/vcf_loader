@@ -1,4 +1,4 @@
-kg_loader
+vcf_loader
 =========
 
-Prototype loader for the 1000 Genomes VCF Datasets
+Prototype loader for VCF Datasets
