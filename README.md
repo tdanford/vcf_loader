@@ -26,5 +26,9 @@ See: https://github.com/slottad/scidb-genotypes
 5. Run ./load_multifiles.sh 
 6. Hang onto something
 
+The example load_multifiles comes hardcoded as loading the same example file 6 times.
+In the result schema, only unique variant/sample combinations are preserved.
+The example is good for benchmarking and small scale testing.
+
 The error-handling strategy just isn't there yet. Best way to recover from errors is restart scidb.
 Working on it...
