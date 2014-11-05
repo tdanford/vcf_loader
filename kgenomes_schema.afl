@@ -2,14 +2,6 @@ create array KG_SAMPLE
 <   sample_name :string  >
 [   sample_id =0:*,100,0 ];
 
--- CS        :string null,
--- END       :string null,
--- IMPRECISE :bool,
--- MEND      :int64 null,
--- MLEN      :int64 null,
--- MSTART    :int64 null,
--- SVTYPE    :string null,
--- TDS       :string null
 create array KG_VARIANT
 <
     signature :string,
@@ -28,11 +20,6 @@ create array KG_VARIANT
     chrom_id     =0:*,1,0 
 ];
 
--- CIEND  :int64 null,
--- CIPOS  :int64 null,
--- MC     :string null,
--- MEINFO :string null,
--- SVLEN  :int64 null,
 create array KG_VARIANT_MULT_VAL
 <    
     ac     :int64 null,
@@ -69,7 +56,3 @@ create array KG_CHROMOSOME
 [
     chrom_id   = 0:*,1,0
 ];
-
-
-
-
