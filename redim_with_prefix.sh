@@ -142,7 +142,7 @@ insert(
    ),
    KG_CHROMOSOME,
    X.chrom,
-   chromosome_id
+   chrom_id
   ),
   KG_VARIANT
  ),
