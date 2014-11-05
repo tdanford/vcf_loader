@@ -67,7 +67,7 @@ create array KG_CHROMOSOME
     chrom: string
 >
 [
-    chrom_id   = 0:*,1,0
+    chromosome_id   = 0:*,1,0
 ];
 
 
