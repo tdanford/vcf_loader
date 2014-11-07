@@ -1,4 +1,4 @@
-vcf_loader
+vcf_tools
 =========
 
 Prototype for loading VCF Datasets into scidb. Currently built around the 1000 Genomes dataset.
