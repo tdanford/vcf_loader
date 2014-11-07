@@ -34,3 +34,10 @@ The example is good for benchmarking and small scale testing.
 
 The error-handling strategy just isn't there yet. Best way to recover from errors is restart scidb.
 Working on it...
+
+## R toolkit
+After data is loaded, one can install shim and SciDBR and then run the examples and queries in vcf_toolkit.R. 
+One of the queries needs a proper GENE array...
+
+## AMI
+A slightly older version of this is packaged into the Bioinformatics AMI. Instructions for that are here: http://discover.paradigm4.com/Try-SciDB.html
