@@ -2,7 +2,9 @@ vcf_loader
 =========
 
 Prototype for loading VCF Datasets into scidb. Currently built around the 1000 Genomes dataset.
-Very very early, unstable.
+Very very early, unstable. At the moment, this will only load VCFs that look exactly like 1000 Genomes.
+
+Benchmarked this on a modest cluster and loaded 6 of the 1000 Geones files in parallel, taking roughly 5.5 hours total.
 
 Part of the original prototype was adapted from scidb-genotypes by Douglas Slotta (NCBI)
 See: https://github.com/slottad/scidb-genotypes
