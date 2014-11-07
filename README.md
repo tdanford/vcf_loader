@@ -1,7 +1,7 @@
 vcf_tools
 =========
 
-Prototype for loading VCF Datasets into scidb. Currently built around the 1000 Genomes dataset.
+Prototype for loading VCF Datasets into SciDB. Currently built around the 1000 Genomes dataset.
 Very very early, unstable. At the moment, this will only load VCFs that look exactly like 1000 Genomes.
 
 Benchmarked this on a modest cluster and loaded 6 of the 1000 Geones files in parallel, taking roughly 5.5 hours total.
