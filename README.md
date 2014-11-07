@@ -37,7 +37,7 @@ Working on it...
 
 ## R toolkit
 After data is loaded, one can install shim and SciDBR and then run the examples and queries in vcf_toolkit.R. 
-One of the queries needs a proper GENE array...
+One of the queries needs a proper GENE array. Not there yet.
 
 ## AMI
 A slightly older version of this is packaged into the Bioinformatics AMI. Instructions for that are here: http://discover.paradigm4.com/Try-SciDB.html
