@@ -32,29 +32,22 @@ VAR_BUF_ATTRIBUTES="    <nvid:   int64       ,
                          ref:    string      ,
                          alt:    string      ,
                          qual:   double  null,
-                         filter: string  null,
-                         ns:     int64   null,
-                         an:     int64   null,
-                         misc:   string  null>"
+                         filter:  string  null,
+                         vardata: string  null>"
 GT_BUF_ATTRIBUTES="     <nvid:   int64       , 
                          nsid:   int64       , 
-                         gt:     string      >"
-MV_BUF_ATTRIBUTES="     <nvid:   int64       ,
-                         order_nbr:   int64  ,
-                         ac:     int64   null,
-                         af:     double  null>"
+                         gt:     string      ,
+						 gtdata: string      >"
 
 iquery -anq "remove(${PREFIX}_KG_SAMPLE_BUF)"       > /dev/null 2>&1 
 iquery -anq "remove(${PREFIX}_KG_VAR_BUF)"          > /dev/null 2>&1
 iquery -anq "remove(${PREFIX}_KG_GT_BUF)"           > /dev/null 2>&1
-iquery -anq "remove(${PREFIX}_KG_MV_BUF)"           > /dev/null 2>&1
 
 set -e 
 
 iquery -aq "create array ${PREFIX}_KG_SAMPLE_BUF $SAMPLE_BUF_ATTRIBUTES [ n             = 0:*,1000000,0]" > /dev/null
 iquery -aq "create array ${PREFIX}_KG_VAR_BUF    $VAR_BUF_ATTRIBUTES    [ n             = 0:*,1000000,0]" > /dev/null
 iquery -aq "create array ${PREFIX}_KG_GT_BUF     $GT_BUF_ATTRIBUTES     [ n             = 0:*,1000000,0]" > /dev/null
-iquery -aq "create array ${PREFIX}_KG_MV_BUF     $MV_BUF_ATTRIBUTES     [ n             = 0:*,1000000,0]" > /dev/null
 
 rm -rf ${PREFIX}_sample_buf_file ${PREFIX}_vcf_buf_fifo ${PREFIX}_gt_buf_fifo ${PREFIX}_mv_buf_fifo 
 rm -rf ${PREFIX}_vcf_load.log ${PREFIX}_gt_load.log ${PREFIX}_mv_load.log ${PREFIX}_samples_load.log
@@ -69,7 +62,6 @@ zcat $INFILE | ./vcfstreamer/vcfstreamer ${PREFIX}_sample_buf_file ${PREFIX}_vcf
 
 loadcsv.py           -v -i ${PREFIX}_vcf_buf_fifo   -a ${PREFIX}_KG_VAR_BUF     -D '\t' > ${PREFIX}_vcf_load.log 2>&1 &
 ./loadcsv_express.py -v -i ${PREFIX}_gt_buf_fifo    -a ${PREFIX}_KG_GT_BUF      -D '\t' > ${PREFIX}_gt_load.log  2>&1 &
-loadcsv.py           -v -i ${PREFIX}_mv_buf_fifo    -a ${PREFIX}_KG_MV_BUF      -D '\t' > ${PREFIX}_mv_load.log  2>&1 &
 
 FAILURES=0
 for job in `jobs -p`
