@@ -1,0 +1,5 @@
+vcfstreamer
+vcfstreamer_test
+*~
+*.a
+*.o
