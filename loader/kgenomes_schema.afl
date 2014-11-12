@@ -20,16 +20,6 @@ create array KG_VARIANT
     chrom_id     =0:*,1,0 
 ];
 
-create array KG_VARIANT_MULT_VAL
-<    
-    ac     :int64 null,
-    af     :double null 
->
-[
-    variant_id =0:*,10000,0,
-    order_nbr  =0:*,5,0 
-];
-
 create array KG_GENOTYPE
 <
     gt :string null 
