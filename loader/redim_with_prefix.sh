@@ -187,20 +187,6 @@ time iquery -anq "
 insert(
  redimension(
   index_lookup(
-   ${PREFIX}_KG_MV_BUF, 
-   KG_VAR_GUIDE_BUF,
-   ${PREFIX}_KG_MV_BUF.nvid, 
-   variant_id
-  ),
-  KG_VARIANT_MULT_VAL
- ),
- KG_VARIANT_MULT_VAL
-)"
-
-time iquery -anq "
-insert(
- redimension(
-  index_lookup(
    index_lookup(
     apply(
      ${PREFIX}_KG_VAR_BUF,
@@ -231,14 +217,12 @@ delete_old_versions "KG_CHROMOSOME"
 delete_old_versions "KG_GENOTYPE"
 delete_old_versions "KG_SAMPLE"
 delete_old_versions "KG_VARIANT"
-delete_old_versions "KG_VARIANT_MULT_VAL"
 delete_old_versions "KG_VARIANT_POSITION_MASK"
 
 iquery -aq "op_count(KG_CHROMOSOME)"
 iquery -aq "op_count(KG_GENOTYPE)"
 iquery -aq "op_count(KG_SAMPLE)"
 iquery -aq "op_count(KG_VARIANT)"
-iquery -aq "op_count(KG_VARIANT_MULT_VAL)"
 iquery -aq "op_count(KG_VARIANT_POSITION_MASK)"
 
 
