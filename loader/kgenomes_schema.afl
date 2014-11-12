@@ -11,9 +11,7 @@ create array KG_VARIANT
     id        :string null,
     qual      :double null,
     filter    :string null,
-    ns        :int64 null,
-    an        :int64 null,
-    misc      :string null
+	vardata   :string null
 >
 [
     variant_id   =0:*,10000,0,
@@ -22,7 +20,8 @@ create array KG_VARIANT
 
 create array KG_GENOTYPE
 <
-    gt :string null 
+    gt :string null,
+	gtdata :string null
 >
 [
     variant_id =0:*,10000,0,
