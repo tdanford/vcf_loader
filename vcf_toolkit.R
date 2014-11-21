@@ -32,6 +32,24 @@ covariance_demo = function()
   
   #Looks interesting. We think the different bands in the image may correspond to particular ethnic groups
   image(CV)
+  
+  #PCA: the eigenvectors of the covariance matrix are the principal components of the data
+  scidbremove("COVAR_PCA", force=TRUE, error=invisible, warn=FALSE)
+  #CV_PCA=scidb("COVAR_PCA")
+  #ETA ~5 minutes
+  PCA = scidbeval(svd(CV)$u, name="COVAR_PCA", gc=FALSE)
+  
+  #2D Plot using KMeans to cluster
+  dat = PCA[,0:1][]
+  km = kmeans(dat,2, nstart=50)
+  plot(dat,col=km$cluster+2)
+  
+  #3D Interactive Plot using threejs: https://github.com/bwlewis/rthreejs
+  library(threejs)
+  dat = PCA[,0:2][]
+  km = kmeans(dat, 3, nstart=50)
+  color=gsub("[0-9]","",palette()[km$cluster+1])
+  scatterplotThree(dat, size=0.25, color=color)
 }
 
 VARIANT          = scidb("KG_VARIANT")
