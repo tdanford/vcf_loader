@@ -1,0 +1,5 @@
+drop array gvcf;
+drop array gvcf_chrom;
+drop array gvcf_sample;
+drop array gvcf_tmp;
+drop array tmp2;

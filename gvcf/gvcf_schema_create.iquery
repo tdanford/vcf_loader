@@ -1,0 +1,28 @@
+
+create array gvcf<
+  ref : string null,
+  alts : string null,
+  info :string null,
+  gt :string null,
+  dp :int64 null,
+  ad :string null,
+  pl :string null
+>[
+  chrom_id =0:*,25,0, 
+  sample_id =0:*,1000,0,
+  start =0:*,1000000,0,
+  end =0:*,1000000,0
+];
+
+create array gvcf_chrom<
+	name :string >
+[
+	chrom_id =0:*,1000,0 ];
+
+create array gvcf_sample<
+  name :string 
+>[
+  sample_id =0:*,1000,0
+];
+
+

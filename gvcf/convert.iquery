@@ -1,0 +1,51 @@
+
+store(
+
+apply(
+apply(
+apply(
+apply(
+apply(
+apply(
+apply(
+apply(
+apply(
+apply(
+apply(
+  filter(filter(gvcf_tmp, is_null(error)), not(regex(a0, '^#.*'))),
+  start, int64(a1)),
+  end, int64(keyed_value(a7, 'END', a1))),
+  ref, a3),
+  alts, a4),
+  info, a7),
+  chrom, a0),
+  gt, format_extract(a8, a9, 'GT')),
+  dp, int64(format_extract(a8, a9, 'DP'))),
+  ad, format_extract(a8, a9, 'AD')),
+  pl, format_extract(a8, a9, 'PL')),
+  sample, 'HG00102')
+, tmp2) 
+;
+
+insert(
+  redimension(
+    apply(uniq(sort(project(tmp2, chrom))), name, chrom), 
+  gvcf_chrom), 
+gvcf_chrom);
+
+insert(
+  redimension(
+    apply(uniq(sort(project(tmp2, sample))), name, sample), 
+  gvcf_sample), 
+gvcf_sample);
+
+insert(
+redimension(
+index_lookup(
+  index_lookup(tmp2, gvcf_chrom, chrom, chrom_id),
+  gvcf_sample,
+  sample,
+  sample_id),
+  gvcf),
+gvcf);
+
