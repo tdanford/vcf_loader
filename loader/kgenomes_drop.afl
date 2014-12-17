@@ -1,6 +1,0 @@
-remove(KG_SAMPLE);
-remove(KG_VARIANT);
-remove(KG_VARIANT_MULT_VAL);
-remove(KG_GENOTYPE);
-remove(KG_VARIANT_POSITION_MASK);
-remove(KG_CHROMOSOME);
