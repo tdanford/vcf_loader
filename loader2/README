@@ -1,0 +1,14 @@
+This is also a loader expected to work on 1000Genomes data, albeit much faster and simpler.
+In order to use it, you need to install www.github.com/paradigm4/load_tools
+
+It exhibits a slightly more general schema. 
+It does not require high numbers of threads or as much pre-processing. 
+Currently it assumes that
+ - the first VCF loaded will contain all the samples in the SAMPLE line
+ - every other VCF loaded will contain the same samples in the same positions
+ - no two VCFs have the same variant listed
+That is the case with the 1K genomes data.
+
+It is possible to append both: new samples and new variants. No conceptual difficulty.
+Those queries will need to use index_lookup more often as well as more sophisticated inserts.
+Those paths are not implemented yet - the loader will error out if they are encountered.
