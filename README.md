@@ -15,6 +15,7 @@ Built to load 1000 Genomes data or data with very similar organization
 1. Install load_tools from www.github.com/paradigm4/load_tools
 2. Currently, all VCFs must contain the same number of samples in the same positions
 3. Currently, no two VCFs may have the same variant 
+4. But this can be - and probably soon will be - a lot more flexible. Needs a few more code paths in load_file.sh
 
 ## Loading
 1. Run ./loader/recreate_db.sh once initially to create all the target arrays; run it again to blow away all the data
