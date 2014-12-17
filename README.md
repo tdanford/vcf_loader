@@ -19,7 +19,7 @@ Built to load 1000 Genomes data or data with very similar organization
 
 ## Loading
 1. Run ./kg_loader/recreate_db.sh once initially to create all the target arrays; run it again to blow away all the data
-2. Run ./kg_loader/load_file.sh <FILENAME>
+2. Run ./kg_loader/load_file.sh FILENAME
 3. Hang onto something
 
 ## R toolkit
