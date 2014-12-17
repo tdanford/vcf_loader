@@ -76,6 +76,7 @@ else
  cat  $FILE > $fifo_path &
 fi
 #Load the file
+iquery -anq "create array KG_LOAD_BUF_$RIND <a:string null> [source_instance_id=0:*,1,0,chunk_no=0:*,1,0,line_no=0:*,$LINES_PER_CHUNK,0,attribute_no=0:$NUM_ATTRIBUTES,$((NUM_ATTRIBUTES+1)),0]" > /dev/null
 iquery -anq "store(parse(split('$fifo_path', 'source_instance_id=0', 'lines_per_chunk=$LINES_PER_CHUNK'), 'num_attributes=$NUM_ATTRIBUTES', 'chunk_size=$LINES_PER_CHUNK', 'split_on_dimension=1'), KG_LOAD_BUF_$RIND)" > /dev/null
 rm -rf $fifo_path
 log "File ingested"
@@ -357,7 +358,7 @@ insert(
   KG_VARIANT_POSITION_MASK
  ),
  KG_VARIANT_POSITION_MASK
-)"
+)" > /dev/null
 log "Cleaning up"
 delete_old_versions "KG_CHROMOSOME"
 delete_old_versions "KG_GENOTYPE"
