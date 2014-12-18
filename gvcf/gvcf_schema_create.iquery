@@ -9,7 +9,7 @@ create array gvcf<
   pl :string null
 >[
   chrom_id =0:*,25,0, 
-  sample_id =0:*,1000,0,
+  sample_id =0:*,100,0,
   start =0:*,1000000,0,
   end =0:*,1000000,0
 ];
@@ -17,12 +17,12 @@ create array gvcf<
 create array gvcf_chrom<
 	name :string >
 [
-	chrom_id =0:*,1000,0 ];
+	chrom_id =0:*,25,0 ];
 
 create array gvcf_sample<
   name :string 
 >[
-  sample_id =0:*,1000,0
+  sample_id =0:*,100,0
 ];
 
 
