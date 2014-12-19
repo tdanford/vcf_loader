@@ -11,7 +11,7 @@ See: https://github.com/slottad/scidb-genotypes
 Built to load 1000 Genomes data or data with very similar organization
 
 ## Pre-reqs
-0. Assumes running SciDB 14.8 or newer, Python, CPP compiler. The larger the cluster - the faster this will run.
+0. Assumes running SciDB 14.8 or newer, Python, CPP compiler. The larger the cluster - the faster this will run. On our modest 4-node cluster, we loaded all of the 1000Genomes data with an average throughput of 0.76 milliseconds per line (at 2504 samples per line). 
 1. Install load_tools from www.github.com/paradigm4/load_tools
 2. Currently, all VCFs must contain the same number of samples in the same positions
 3. Currently, no two VCFs may have the same variant 
@@ -19,7 +19,7 @@ Built to load 1000 Genomes data or data with very similar organization
 
 ## Loading
 1. Run ./kg_loader/recreate_db.sh once initially to create all the target arrays; run it again to blow away all the data
-2. Run ./kg_loader/load_file.sh <FILENAME>
+2. Run ./kg_loader/load_file.sh FILENAME
 3. Hang onto something
 
 ## R toolkit
