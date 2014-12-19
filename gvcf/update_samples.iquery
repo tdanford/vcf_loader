@@ -3,12 +3,15 @@ insert(
   redimension(
     apply(
       redimension(
-        index_lookup(
-          filter( index_lookup(tmp2, gvcf_sample, tmp2.sample, lookup_sample_id), is_null(lookup_sample_id) ) as A,
-          uniq(sort(project(tmp2, sample))),
-          A.sample, sample_idx),
-        <name:string>[sample_idx=0:*,100,0])
-      sample_idx + %MAX_SAMPLE% + 1)
+        apply(
+          index_lookup(
+            filter( index_lookup(tmp2, gvcf_sample, tmp2.sample, lookup_sample_id), is_null(lookup_sample_id) ) as A,
+            uniq(sort(project(tmp2, sample))),
+            A.sample, sample_idx),
+            name, sample),
+        <name:string>[sample_idx=0:*,100,0]),
+      sample_id, 
+      sample_idx + %MAX_SAMPLE% + 1),
   gvcf_sample), 
 gvcf_sample);
 

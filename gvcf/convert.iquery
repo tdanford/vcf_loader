@@ -12,28 +12,6 @@ store(
     dp, int64(format_extract(a8, a9, 'DP')),
     ad, format_extract(a8, a9, 'AD'),
     pl, format_extract(a8, a9, 'PL'),
-    sample, 'HG000102'), 
+    sample, '%SAMPLE%'), 
   tmp2);
-
-insert(
-  redimension(
-    apply(uniq(sort(project(tmp2, chrom))), name, chrom), 
-  gvcf_chrom), 
-gvcf_chrom);
-
-insert(
-  redimension(
-    apply(uniq(sort(project(tmp2, sample))), name, sample), 
-  gvcf_sample), 
-gvcf_sample);
-
-insert(
-redimension(
-index_lookup(
-  index_lookup(tmp2, gvcf_chrom, chrom, chrom_id),
-  gvcf_sample,
-  sample,
-  sample_id),
-  gvcf),
-gvcf);
 

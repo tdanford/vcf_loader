@@ -1,0 +1,12 @@
+
+insert(
+redimension(
+index_lookup(
+  index_lookup(tmp2, gvcf_chrom, chrom, chrom_id),
+  gvcf_sample,
+  sample,
+  sample_id),
+  gvcf),
+gvcf);
+
+

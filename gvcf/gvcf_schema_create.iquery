@@ -15,13 +15,11 @@ create array gvcf<
 ];
 
 create array gvcf_chrom<
-	name :string >
-[
+	name :string>[
 	chrom_id =0:*,25,0 ];
 
 create array gvcf_sample<
-  name :string 
->[
+  name :string>[
   sample_id =0:*,100,0
 ];
 
