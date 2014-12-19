@@ -1,0 +1,13 @@
+
+insert(
+  redimension(
+    apply(
+      redimension(
+        index_lookup(
+          filter( index_lookup(tmp2, gvcf_chrom, tmp2.chrom, lookup_chrom_id), is_null(lookup_chrom_id) ) as A,
+          uniq(sort(project(tmp2, chrom))),
+          A.chrom, chrom_idx),
+        <name:string>[chrom_idx=0:*,100,0])
+      chrom_idx + %MAX_CHROM% + 1)
+  gvcf_chrom), 
+gvcf_chrom);
