@@ -1,31 +1,19 @@
 
 store(
-
-apply(
-apply(
-apply(
-apply(
-apply(
-apply(
-apply(
-apply(
-apply(
-apply(
-apply(
-  filter(filter(gvcf_tmp, is_null(error)), not(regex(a0, '^#.*'))),
-  start, int64(a1)),
-  end, int64(keyed_value(a7, 'END', a1))),
-  ref, a3),
-  alts, a4),
-  info, a7),
-  chrom, a0),
-  gt, format_extract(a8, a9, 'GT')),
-  dp, int64(format_extract(a8, a9, 'DP'))),
-  ad, format_extract(a8, a9, 'AD')),
-  pl, format_extract(a8, a9, 'PL')),
-  sample, 'HG00102')
-, tmp2) 
-;
+  apply(
+    filter(filter(gvcf_tmp, is_null(error)), not(regex(a0, '^#.*'))),
+    start, int64(a1),
+    end, int64(keyed_value(a7, 'END', a1)),
+    ref, a3,
+    alts, a4,
+    info, a7,
+    chrom, a0,
+    gt, format_extract(a8, a9, 'GT'),
+    dp, int64(format_extract(a8, a9, 'DP')),
+    ad, format_extract(a8, a9, 'AD'),
+    pl, format_extract(a8, a9, 'PL'),
+    sample, 'HG000102'), 
+  tmp2);
 
 insert(
   redimension(
